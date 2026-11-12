@@ -12,6 +12,18 @@
         "chatSessionId": "sess_2396a863-3296-473b-b13f-7400437c864c",
         "timestamp": 1794524803373
       }
+    ],
+    "1.2 Implement review-decision fold logic in `RecordState.applySet()`": [
+      {
+        "executionId": "7c25b718-1582-4a04-b6d4-c54f1804c1b1",
+        "chatSessionId": "sess_64ac0f32-41e2-4330-8f05-2610877022d1",
+        "timestamp": 1794525193659
+      },
+      {
+        "executionId": "7c25b718-1582-4a04-b6d4-c54f1804c1b1",
+        "chatSessionId": "sess_64ac0f32-41e2-4330-8f05-2610877022d1",
+        "timestamp": 1794525881371
+      }
     ]
   }
 }

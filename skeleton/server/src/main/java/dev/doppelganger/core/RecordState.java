@@ -50,6 +50,34 @@ public final class RecordState {
                 }
             }
             case SET -> applySet(entry, spec.policy(op.field()));
+            case REVIEW_DECISION -> applyReviewDecision(entry);
+            case DELETE_DISPUTE_DECISION -> applyDeleteDisputeDecision(op);
+        }
+    }
+
+    /**
+     * A reviewer cleared a disputed field: replace the candidates with the chosen value.
+     * Requirements 7.4, 3.8.
+     */
+    private void applyReviewDecision(LogEntry entry) {
+        Operation op = entry.op();
+        FieldState old = field(op.field());
+        // Clear candidates and apply the reviewer's chosen value, regardless of prior dispute state.
+        fields.put(op.field(), new FieldState(op.value(), op.hlc(), op.deviceId(), List.of()));
+    }
+
+    /**
+     * A reviewer resolved a delete-vs-edit dispute.
+     * value "delete" → tombstone the record and clear deleteDispute.
+     * value "keep"   → clear deleteDispute only, leaving the record intact.
+     * Requirements 3.8.
+     */
+    private void applyDeleteDisputeDecision(Operation op) {
+        if ("delete".equals(op.value())) {
+            tombstone = new DeleteMark(op.opId(), op.deviceId(), op.hlc(), version);
+            deleteDispute = null;
+        } else if ("keep".equals(op.value())) {
+            deleteDispute = null;
         }
     }
 

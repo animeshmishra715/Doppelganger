@@ -22,7 +22,7 @@ The skeleton already contains the append-only operation log, the pure-Java `Sync
     - Extend `OpKind.java` and its `json()` / `fromJson()` with the four new kinds
     - _Requirements: 7.4, 12.9, 12.11_
 
-  - [ ] 1.2 Implement review-decision fold logic in `RecordState.applySet()`
+  - [x] 1.2 Implement review-decision fold logic in `RecordState.applySet()`
     - A `review-decision` operation on a disputed field MUST clear `FieldState.candidates` and set value + hlc from the operation; `FieldState.EMPTY.candidates` being non-empty is the only signal that a field is disputed
     - A `delete-dispute-decision` with value `"delete"` MUST set `tombstone` and clear `deleteDispute`; value `"keep"` MUST clear only `deleteDispute`
     - A plain `SET` operation on a field that already has non-empty `candidates` MUST add to candidates, not clear them
