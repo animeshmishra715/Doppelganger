@@ -1,0 +1,12 @@
+# NOTE: never add .kiro/ here (hackathon rule)
+target/
+data/
+node_modules/
+dist/
+*.class
+*.log
+.idea/
+*.iml
+.vscode/
+.env
+
