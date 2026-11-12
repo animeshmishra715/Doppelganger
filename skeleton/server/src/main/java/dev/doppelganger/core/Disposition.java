@@ -11,5 +11,7 @@ public enum Disposition {
     /** Recorded, but it changes nothing (for example both sides made the same change). */
     NO_CHANGE,
     /** Recorded, but it could not be applied (unknown record, unknown field, bad value). */
-    REJECTED
+    REJECTED,
+    /** A human reviewer picked a value; the dispute is now cleared. */
+    REVIEW_DECISION
 }

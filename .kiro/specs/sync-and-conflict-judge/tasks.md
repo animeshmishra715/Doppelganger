@@ -17,7 +17,7 @@ The skeleton already contains the append-only operation log, the pure-Java `Sync
 ## Tasks
 
 - [ ] 1. Extend the core domain model: review-decision and duplicate log operations
-  - [ ] 1.1 Add `REVIEW_DECISION` to `Disposition` enum and add `review-decision` and `delete-dispute-decision` to `OpKind`; also add `duplicate-merge` and `duplicate-undo` to `OpKind`
+  - [x] 1.1 Add `REVIEW_DECISION` to `Disposition` enum and add `review-decision` and `delete-dispute-decision` to `OpKind`; also add `duplicate-merge` and `duplicate-undo` to `OpKind`
     - Extend `Disposition.java` with `REVIEW_DECISION`
     - Extend `OpKind.java` and its `json()` / `fromJson()` with the four new kinds
     - _Requirements: 7.4, 12.9, 12.11_
